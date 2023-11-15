@@ -8,6 +8,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
@@ -17,6 +18,7 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
+    console.log("state in the location login page", location.state);
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -109,20 +111,22 @@ const Login = () => {
                                 />
                             </div>
                             <div className="form-control mt-6">
+                                {/* TODO: apply disabled for re captcha */}
                                 <input
-                                    disabled={disabled}
+                                    disabled={false}
                                     className="btn btn-primary"
                                     type="submit"
                                     value="Login"
                                 />
                             </div>
                         </form>
-                        <p>
+                        <p className="px-6">
                             <small>
                                 New Here?{" "}
                                 <Link to="/signup">Create an account</Link>{" "}
                             </small>
                         </p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
