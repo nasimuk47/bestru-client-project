@@ -17,6 +17,8 @@ import ManageItems from "../Page/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../Page/Dashboard/UpdateItem/UpdateItem";
 import Payment from "../Page/Dashboard/Payment/Payment";
 import PaymentHistory from "../Page/Dashboard/PaymentHistory/PaymentHistory";
+import UserHome from "../Page/Dashboard/UserHome/UserHome";
+import AdminHome from "../Page/Dashboard/AdminHome/AdminHome";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +69,16 @@ export const router = createBrowserRouter([
             },
 
             {
+                path: "userHome",
+                element: <UserHome></UserHome>,
+            },
+
+            {
+                path: "adminHome",
+                element: <AdminHome></AdminHome>,
+            },
+
+            {
                 path: "payment",
                 element: <Payment></Payment>,
             },
@@ -97,7 +109,9 @@ export const router = createBrowserRouter([
                     </AdminRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/menu/${params.id}`),
+                    fetch(
+                        `https://bistro-boss-server-six-eosin.vercel.app/menu/${params.id}`
+                    ),
             },
 
             // admin routes
