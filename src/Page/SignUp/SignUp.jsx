@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Lottie from "lottie-react";
+import loginAnimation from "../../assets/login-animation.json";
 
 const SignUp = () => {
     const axiosPublic = useAxiosPublic();
@@ -51,15 +53,11 @@ const SignUp = () => {
 
     return (
         <>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero min-h-screen bg-blue-200">
+                <div className="hero-content flex-col lg:flex-row-reverse gap-16">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Sign up now!</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat
-                            fugiat ut assumenda excepturi exercitationem quasi.
-                            In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
+                        <Lottie animationData={loginAnimation} autoPlay loop />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form
@@ -157,29 +155,25 @@ const SignUp = () => {
                                         character.
                                     </p>
                                 )}
-                                <label className="label">
-                                    <a
-                                        href="#"
-                                        className="label-text-alt link link-hover">
-                                        Forgot password?
-                                    </a>
-                                </label>
                             </div>
                             <div className="form-control mt-6">
                                 <input
-                                    className="btn btn-primary"
+                                    className="btn bg-orange-500"
                                     type="submit"
                                     value="Sign Up"
                                 />
                             </div>
                         </form>
-                        <p className="px-6">
-                            <small>
-                                Already have an account{" "}
-                                <Link to="/login">Login</Link>
-                            </small>
-                        </p>
                         <SocialLogin></SocialLogin>
+                        <p className="px-6">
+                            <p className="flex justify-center ">
+                                Already have an account{" "}
+                                <span className="text-red-500 font-bold mb-4 ml-2 ">
+                                    {" "}
+                                    <Link to="/login">Login</Link>
+                                </span>
+                            </p>
+                        </p>
                     </div>
                 </div>
             </div>
