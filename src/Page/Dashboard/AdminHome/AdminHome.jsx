@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useQuery } from "@tanstack/react-query";
 
-import { FaBook, FaDollarSign, FaUsers } from "react-icons/fa";
+import {
+    FaBook,
+    FaDollarSign,
+    FaFacebook,
+    FaInstagram,
+    FaTwitter,
+    FaUsers,
+} from "react-icons/fa";
 import {
     BarChart,
     Bar,
@@ -15,6 +22,7 @@ import {
 } from "recharts";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
@@ -90,11 +98,36 @@ const AdminHome = () => {
     });
 
     return (
-        <div>
-            <h2 className="text-3xl">
-                <span>Hi, Welcome </span>
-                {user?.displayName ? user.displayName : "Back"}
-            </h2>
+        <div className=" flex-wrap">
+            <div className="hero-content  text-center h-[300px]">
+                <div className="card w-[300px] h-[300px] bg-blue-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img
+                            src={user.photoURL}
+                            alt="Profile"
+                            className="rounded-full w-[80px] h-[80px]"
+                        />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="text-4xl ">{user.displayName}</h2>
+                        <p className="text-lg">Email:~ {user.email}</p>
+                        <div className="flex gap-3">
+                            <Link to="https://web.facebook.com/profile.php?id=100065618652112">
+                                {" "}
+                                <FaFacebook className="text-3xl text-blue-500"></FaFacebook>
+                            </Link>
+                            <Link to="https://www.instagram.com">
+                                {" "}
+                                <FaInstagram className="text-3xl text-red-500"></FaInstagram>
+                            </Link>
+                            <Link to=" https://twitter.com/?lang=en">
+                                {" "}
+                                <FaTwitter className="text-3xl text-blue-500"></FaTwitter>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="stats shadow">
                 <div className="stat">
                     <div className="stat-figure text-secondary">
