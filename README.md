@@ -6,11 +6,15 @@
 
 ## Project Features:~
 
+### User Profile:
+
+If your project involves user accounts, include a user profile menu where users can access their account information, orders, and settings. This is especially useful if you have a user authentication system.
+
 ### User Authentication:
 
 Allow users to create accounts and log in. Secure password handling and user authentication.
 
-### Tour Package Booking:
+### Booking:
 
 Allow users to book tour packages. Collect necessary information for booking, including user details and payment.
 
